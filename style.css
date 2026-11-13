@@ -1,0 +1,228 @@
+@font-face {
+  font-family: "Noto Serif KR";
+  src: url("assets/noto-serif-kr.woff2") format("woff2");
+  font-weight: 200 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Black Han Sans";
+  src: url("assets/black-han-sans.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: Pretendard;
+  src: url("assets/pretendard-variable.woff2") format("woff2");
+  font-weight: 45 920;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gowun Batang";
+  src: url("assets/gowun-batang.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  --sans: Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --serif: "Noto Serif KR", "AppleMyungjo", Batang, serif;
+  --literary: "Gowun Batang", var(--serif);
+  --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+  --ink: #211f1b;
+  --paper: #f2ecde;
+  --accent: #872e24;
+  --line: #aaa191;
+}
+
+* { box-sizing: border-box; }
+body, p, h1, h2, figure, blockquote { margin: 0; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  -webkit-text-size-adjust: 100%;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+a:focus-visible, summary:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+
+.skip-link {
+  position: absolute;
+  z-index: 10;
+  top: 7px;
+  left: 12px;
+  padding: 9px 13px;
+  background: #fffef5;
+  color: #222;
+  transform: translateY(-150%);
+}
+.skip-link:focus { transform: translateY(0); }
+
+.masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 51px;
+  padding: 9px max(16px, calc((100% - 1210px) / 2));
+  border-bottom: 1px solid currentColor;
+}
+.brand, .index-link { text-decoration: none; white-space: nowrap; }
+.brand { font-size: 19px; font-weight: 900; letter-spacing: -.065em; }
+.brand span { margin-left: 7px; font-size: 11px; font-weight: 700; letter-spacing: 0; }
+.index-link { font-size: 13px; font-weight: 750; }
+.index-link:hover { text-decoration: underline; text-underline-offset: .25em; }
+
+.story-end, .article-end {
+  width: min(100% - 36px, 740px);
+  margin-inline: auto;
+  padding-block: 24px 46px;
+}
+.sources { border-block: 1px solid var(--line); font-size: 14px; line-height: 1.65; }
+.sources summary { padding-block: 12px; cursor: pointer; font-weight: 750; }
+.sources ul { padding-left: 1.4em; margin: 0 0 14px; overflow-wrap: anywhere; }
+.sources a { text-underline-offset: 3px; }
+.story-nav { margin-top: 18px; }
+.story-nav a {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 5px 16px;
+  align-items: center;
+  border: 1px solid currentColor;
+  padding: 11px 14px;
+  font-size: 18px;
+  font-weight: 800;
+  text-decoration: none;
+}
+.story-nav a > span:first-child { grid-column: 1 / -1; font-size: 11px; }
+.story-nav a:hover { text-decoration: underline; text-underline-offset: .2em; }
+
+.index-page {
+  --paper: #e7dfca;
+  background: linear-gradient(#e9e0ccd6, #e9e0ccd6), url("assets/editorial-paper.jpg") top left / 500px auto, var(--paper);
+}
+.catalog { width: min(100% - 36px, 1150px); margin-inline: auto; padding-bottom: 56px; }
+.catalog-intro { padding-block: clamp(25px, 5vw, 65px) clamp(16px, 3vw, 33px); }
+.catalog-intro h1 {
+  font: 900 clamp(48px, 10vw, 144px)/.92 var(--sans);
+  letter-spacing: -.085em;
+}
+.catalog-intro h1 em { color: #972e24; }
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.story-grid li { min-width: 0; position: relative; }
+.story-grid li:first-child { grid-area: 1 / 1 / 3 / 8; }
+.story-grid li:nth-child(2) { grid-area: 1 / 8 / 2 / 13; margin: 3% 0 0 -3%; z-index: 1; }
+.story-grid li:last-child { grid-area: 2 / 7 / 4 / 13; margin-top: -1%; z-index: 2; }
+.story-card {
+  display: block;
+  position: relative;
+  min-height: 100%;
+  text-decoration: none;
+  isolation: isolate;
+  overflow: hidden;
+}
+.story-card:hover h2 { text-decoration: underline; text-underline-offset: .15em; }
+.story-card:focus-visible { z-index: 1; outline-offset: -5px; }
+.story-card.theme-elephant { background: #2f5146; color: #fff3d8; }
+.story-card.theme-nintendo { background: #c32d29; color: #fff6d9; }
+.story-card.theme-bluetooth { background: #283ebd; color: #f2f6d7; }
+.card-art {
+  position: relative;
+  min-height: 125px;
+  aspect-ratio: 2.6;
+  isolation: isolate;
+  background: radial-gradient(#20204070 .8px, transparent 1.2px) 0 0 / 5px 5px;
+}
+.theme-elephant .card-art { aspect-ratio: 1.53; background-color: #485a41; }
+.card-art img { position: absolute; width: 75%; height: 95%; inset: 0 auto auto 0; object-fit: cover; }
+.card-art .card-cut { width: 37%; height: 79%; inset: auto 2% -2% auto; transform: rotate(7deg); }
+.theme-elephant .card-art img:first-child { width: 77%; object-position: 49% 46%; clip-path: polygon(0 0, 98% 0, 99% 92%, 0 100%); }
+.theme-elephant .card-art .card-cut { right: 8%; height: 57%; border: 4px solid #d6cba4; }
+.theme-nintendo .card-art img:first-child { height: 83%; top: 9%; left: 2%; object-fit: contain; transform: rotate(-10deg); }
+.theme-nintendo .card-art .card-cut { object-fit: contain; height: 95%; right: 3%; transform: rotate(12deg); }
+.theme-bluetooth .card-art img:first-child { object-position: 50% 63%; }
+.theme-bluetooth .card-art .card-cut { border: 4px solid #dbd8ad; object-position: center 37%; }
+.card-copy {
+  position: relative;
+  padding: 12px clamp(13px, 2.2vw, 29px) 16px;
+}
+.card-copy h2 { margin: 2px 22px 6px 0; font-size: clamp(23px, 3vw, 38px); line-height: 1.1; letter-spacing: -.045em; word-break: keep-all; }
+.card-copy p { font-size: clamp(13px, 1.6vw, 17px); line-height: 1.42; word-break: keep-all; }
+.card-arrow { position: absolute; top: 10px; right: 12px; }
+@media (max-width: 600px) {
+  .catalog { width: calc(100% - 24px); }
+  .story-grid li:first-child { grid-area: 1 / 1 / 2 / 13; }
+  .story-grid li:nth-child(2) { grid-area: 2 / 1 / 3 / 8; margin: 0; }
+  .story-grid li:last-child { grid-area: 2 / 8 / 3 / 13; margin: 8% 0 0 -2%; }
+  .theme-elephant .card-art { aspect-ratio: 2; }
+  .card-art { min-height: 105px; }
+  .story-grid li:not(:first-child) .card-copy h2 { font-size: clamp(17px, 5.2vw, 26px); }
+  .story-grid li:not(:first-child) .card-copy { padding: 9px 9px 12px; }
+  .story-grid li:not(:first-child) .card-copy h2 { margin-right: 11px; }
+  .story-grid li:not(:first-child) .card-arrow { right: 5px; top: 8px; }
+}
+
+.story-motion {
+  scroll-padding-block: clamp(12px, 3.5vh, 34px) 66px;
+}
+
+.story-motion article mark {
+  color: inherit;
+  background: linear-gradient(var(--marker-ink, #f3cc65), var(--marker-ink, #f3cc65)) left 86% / 100% 68% no-repeat;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.story-motion .elephant-island { --marker-ink: #d79754; }
+.story-motion .theme-bluetooth { --marker-ink: #e2f26c; }
+
+.story-steps {
+  position: fixed;
+  z-index: 5;
+  inset: auto max(10px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom)) auto;
+  display: flex;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid currentColor;
+  box-shadow: 2px 2px 0 currentColor;
+}
+.story-steps button {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  font: 700 18px/1 var(--sans);
+  color: inherit;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.story-steps button + button { border-inline-start: 1px solid currentColor; }
+.story-steps button:focus-visible { outline: 2px solid currentColor; outline-offset: -4px; }
+.story-steps button:disabled { opacity: .3; cursor: default; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .elephant-plate-pair,
+  .elephant-study-map,
+  .elephant-island-detail,
+  .nintendo-cover-raster,
+  .nintendo-season-cards,
+  .nintendo-watch-detail > div,
+  .nintendo-dpad-detail > div,
+  .bt-cover-signal,
+  .bt-cover-mark {
+    translate: 0 var(--scroll-drift, 0px);
+  }
+
+  .story-motion article mark { background-size: 0% 68%; }
+  .story-motion article mark.highlight-visible { animation: story-marker 1.12s cubic-bezier(.3, .18, .45, 1) both; }
+}
+@keyframes story-marker {
+  from { background-size: 0% 68%; }
+  to { background-size: 100% 68%; }
+}
