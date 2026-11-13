@@ -33,6 +33,9 @@
   --paper: #f2ecde;
   --accent: #872e24;
   --line: #aaa191;
+  --article-copy-size: clamp(.9375rem, .86rem + .31vw, 1.125rem);
+  --article-copy-leading: 1.65;
+  --article-paragraph-gap: .82em;
 }
 
 * { box-sizing: border-box; }

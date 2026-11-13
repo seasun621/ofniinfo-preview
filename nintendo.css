@@ -347,7 +347,7 @@
 
 .nintendo-copy h2,
 .nintendo-games h2 {
-  margin-bottom: clamp(14px, 2vw, 25px);
+  margin-bottom: clamp(11px, 1.65vw, 22px);
   color: var(--nin-red-dark);
   font: 680 clamp(34px, 4.7vw, 67px)/1.13 var(--nin-heading);
   letter-spacing: -.028em;
@@ -356,14 +356,14 @@
 }
 
 .nintendo-copy p {
-  font: 450 clamp(17px, 1.5vw, 20px)/1.8 var(--sans);
+  font: 450 var(--article-copy-size)/var(--article-copy-leading) var(--sans);
   letter-spacing: -.006em;
   word-break: keep-all;
   overflow-wrap: anywhere;
 }
 
 .nintendo-copy p + p {
-  margin-top: 1em;
+  margin-top: var(--article-paragraph-gap);
 }
 
 .nintendo-copy mark {
@@ -391,7 +391,7 @@
 }
 
 .nintendo-months-copy > p + figure + p {
-  margin-top: 1em;
+  margin-top: var(--article-paragraph-gap);
 }
 
 .nintendo-season::before {
@@ -536,7 +536,7 @@
 
 .nintendo-games .nintendo-copy {
   align-self: center;
-  padding: clamp(15px, 2.4vw, 32px);
+  padding: clamp(12px, 2.1vw, 29px) clamp(15px, 2.4vw, 32px);
   border-top: 3px solid var(--nin-blue);
   background: #e7e9df;
 }
@@ -561,7 +561,7 @@
 
 .nintendo-copy .nintendo-hardware-note {
   display: flow-root;
-  margin-top: 1em;
+  margin-top: var(--article-paragraph-gap);
   padding: 12px 17px;
   border-inline-start: 4px solid #a74934;
   background: #f4e7c3;
